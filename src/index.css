@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding-top: 110px;
+  font-family: 'Roboto', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body::-webkit-scrollbar {
+  width: 12px;               /* ширина scrollbar */
+}
+body::-webkit-scrollbar-track {
+  background: rgba(65, 57, 43, 0);        /* цвет дорожки */
+  width: 12px;               /* ширина scrollbar */
+
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #706d6d;    /* цвет плашки */
+  border-radius: 20px;       /* закругления плашки */
+  /*border: 3px solid rgba(255, 165, 0, 0);  !* padding вокруг плашки *!*/
+  width: 12px;               /* ширина scrollbar */
+  border: 3px solid #ffffff;
+
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.nocopy {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+:root{
+  --backBlock: #f1f1f1;
+  --lineColor: #817e7e;
+  --mainPadding: 120px;
+
+}
+@media screen and (max-width: 1000px){
+  :root{
+    --backBlock: #f1f1f1;
+    --lineColor: #817e7e;
+    --mainPadding: 40px;
+  }
+}
+
+@media screen and (max-width: 800px){
+  :root{
+    --backBlock: #f1f1f1;
+    --lineColor: #817e7e;
+    --mainPadding: 2px;
+  }
+}
