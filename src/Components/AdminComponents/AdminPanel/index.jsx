@@ -6,29 +6,26 @@ const AdminPanel = ({changeAdmin}) => {
 
     const [title, setTitle] = useState('')
     const [desc, setDesc] = useState('')
-    const [file, setFile] = useState(null)
+    const [img, setImg] = useState(null)
 
-    const pushPost = () => {
+    const pushPost = async () => {
         if (title.length && desc.length) {
-            const formData = new FormData()
-
-            formData.append('img', file)
-            formData.append('title', title)
-            formData.append('desc', desc)
-
-            axios({
-                url: 'https://preoject2.herokuapp.com/api/addPost',
+            const rawResponse = await fetch('https://preoject2.herokuapp.com/api/addPost', {
                 method: 'POST',
                 headers: {
+                    'Accept': 'application/json',
+                    'Content-Type': 'application/json',
                     'Authorization': `Bearer ${localStorage.getItem("token")}`
                 },
-
-                data: formData
-            }).then((res) => {
-                alert(res.data.message)
-                setTitle('')
-                setDesc('')
+                body: JSON.stringify({
+                    img: img,
+                    title: title,
+                    desc: desc
+                })
             })
+            const content = await rawResponse.json();
+            console.log(content)
+
         }else{
             alert('do not have Title, Desc')
         }
@@ -44,7 +41,7 @@ const AdminPanel = ({changeAdmin}) => {
         <Block>
             <h1>Admin Panel</h1>
 
-            <input type={'file'} name={'img'} placeholder={'Img URL'} onChange={(e)=> setFile(e.target.files[0])} />
+            <input type={'text'} name={'img'} placeholder={'Img URL'} onChange={(e)=> setImg(e.target.value)} />
             <input type={'text'} name={'title'} placeholder={'Post Title'} onChange={(e)=> setTitle(e.target.value)} value={title} />
             <input type={'text'} name={'desc'} placeholder={'Post Description'} onChange={(e)=> setDesc(e.target.value)} value={desc} />
             <button onClick={()=> pushPost()} className={'pushButton'}>Push new Property</button>
