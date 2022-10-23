@@ -33,6 +33,7 @@ const Block = styled.div`
     max-width: 95%;
   }
   
+  
 `
 
 export {Block}

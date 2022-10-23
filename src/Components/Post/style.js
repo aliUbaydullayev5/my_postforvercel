@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Image } from 'antd';
 
 
 const Block = styled.div`
@@ -39,5 +40,6 @@ Block.TextArea = styled.div`
   padding: 10px 15px;
 
 `;
+
 
 export {Block};

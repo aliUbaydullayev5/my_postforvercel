@@ -15,6 +15,7 @@ const Main = () => {
     const dispatch = useDispatch()
     const [inView, setInView] = useState(false);
 
+
     useEffect(()=> {
         if (inView){
             dispatch(changeQuantity())

@@ -6,7 +6,7 @@ const quantityPosts = createSlice({
         quantityPosts: 7
     },
     reducers: {
-        changeQuantity(state, action) {
+        changeQuantity(state) {
             state.quantityPosts = state.quantityPosts + 7
         },
     },

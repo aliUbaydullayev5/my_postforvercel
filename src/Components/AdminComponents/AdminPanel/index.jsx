@@ -1,13 +1,16 @@
 import React, {useState} from 'react'
 import {Block} from "./style";
 import axios from "axios";
+import AdminAllPosts from "../AdminAllPosts";
+import {getAllPosts} from "../../../Redux/allPosts";
+import {useDispatch} from "react-redux";
 
 const AdminPanel = ({changeAdmin}) => {
 
     const [title, setTitle] = useState('')
     const [desc, setDesc] = useState('')
-    const [img, setImg] = useState(null)
-
+    const [img, setImg] = useState('')
+    const dispatch = useDispatch()
     const pushPost = async () => {
         if (title.length && desc.length) {
             const rawResponse = await fetch('https://preoject2.herokuapp.com/api/addPost', {
@@ -24,11 +27,15 @@ const AdminPanel = ({changeAdmin}) => {
                 })
             })
             const content = await rawResponse.json();
-            console.log(content)
+            alert(content)
+            setTitle('')
+            setDesc('')
+            setImg('')
 
         }else{
             alert('do not have Title, Desc')
         }
+        dispatch(getAllPosts())
     }
 
 
@@ -38,49 +45,18 @@ const AdminPanel = ({changeAdmin}) => {
     }
 
     return(
-        <Block>
-            <h1>Admin Panel</h1>
-
-            <input type={'text'} name={'img'} placeholder={'Img URL'} onChange={(e)=> setImg(e.target.value)} />
-            <input type={'text'} name={'title'} placeholder={'Post Title'} onChange={(e)=> setTitle(e.target.value)} value={title} />
-            <input type={'text'} name={'desc'} placeholder={'Post Description'} onChange={(e)=> setDesc(e.target.value)} value={desc} />
-            <button onClick={()=> pushPost()} className={'pushButton'}>Push new Property</button>
-            <button onClick={()=> logoutFunc()} className={'logButton'}>Logout</button>
-        </Block>
+        <div>
+            <Block>
+                <h1>Admin Panel</h1>
+                <input type={'text'} name={'img'} placeholder={'Img URL'} onChange={(e)=> setImg(e.target.value)} value={img} />
+                <input type={'text'} name={'title'} placeholder={'Post Title'} onChange={(e)=> setTitle(e.target.value)} value={title} />
+                <input type={'text'} name={'desc'} placeholder={'Post Description'} onChange={(e)=> setDesc(e.target.value)} value={desc} />
+                <button onClick={()=> pushPost()} className={'pushButton'}>Push new Property</button>
+                <button onClick={()=> logoutFunc()} className={'logButton'}>Logout</button>
+            </Block>
+            <AdminAllPosts />
+        </div>
     )
 }
 
 export default AdminPanel
-
-
-//
-//
-// addFile(event) {
-//     var formData = new FormData();
-//     formData.append("file", event.target.files[0]);
-//     formData.append('name', 'some value user types');
-//     formData.append('description', 'some value user types');
-//     console.log(event.target.files[0]);
-//
-//     fetch(`http://.../gallery/${path}`, {
-//         method: 'POST',
-//         headers: {'Content-Type': 'multipart/form-data'},
-//         body: {event.target.files[0]}
-//     })
-//         .then((response) => response.json())
-//         .then((data) => {
-//             this.setState({images: data.images, isLoading: false});
-//             this.props.updateImages(data.images);
-//         })
-//         .catch(error => this.setState({error, isLoading: false}));
-// }
-//
-//
-// render() {
-//     return (
-//         <div>
-//             <form encType="multipart/form-data" action="">
-//                 <input id="id-for-upload-file" onChange={this.addFile.bind(this)} type="file"/>
-//             </form>
-//         </div>)
-// }

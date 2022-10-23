@@ -40,7 +40,6 @@ const Post = ({img, title, desc, time, uniqId}) => {
             case '12': {
                 return `${dateNum[2]} Декабрь ${dateNum[0]}`
             }
-
         }
     }
     return(
@@ -48,7 +47,6 @@ const Post = ({img, title, desc, time, uniqId}) => {
             {img && <Block.Img src={img} />}
             <Block.Title className={'nocopy'}>
                 <h1>{title}</h1>
-                {/*<p>{time.split('-').join('').split('T').slice(0,2)}</p>*/}
                 <p>{findDate(time.split('-').join('T').split('T').splice(0,3))}</p>
             </Block.Title>
             <Block.TextArea>{`${desc}`}</Block.TextArea>
