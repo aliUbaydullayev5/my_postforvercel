@@ -16,7 +16,7 @@ const RightBlock = () => {
                 <h2>Ubaydullayev</h2>
                 <h3>Frontend developer</h3>
                 <h4 onClick={()=> navigate('/about')}>About me</h4>
-                <p> Version 0.1</p>
+                <p> Version 0.3</p>
             </Block.Bottom>
         </Block>
     )
