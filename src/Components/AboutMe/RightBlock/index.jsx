@@ -32,7 +32,7 @@ const RightBlock = () => {
                 <Text fontWeight={'600'} color={'#333'}>&nbsp;</Text>
             </div>
 
-            <Text type={'title'} position={'center'} top={'30px'} bottom={'20px'} >Skilss</Text>
+            <Text type={'title'} position={'center'} top={'30px'} bottom={'20px'} >Skills</Text>
 
             <Block.Skilss>
                 <ul>
