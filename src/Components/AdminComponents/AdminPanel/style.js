@@ -5,7 +5,7 @@ const Block = styled.div`
   padding: 50px 5px;
   border-radius: 15px;
   max-width: 30%;
-  height: 500px;
+  min-height: 500px;
   margin: 40px auto;
   display: flex;
   flex-direction: column;
