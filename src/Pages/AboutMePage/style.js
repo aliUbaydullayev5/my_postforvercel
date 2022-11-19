@@ -12,6 +12,7 @@ const Block = styled.div`
   grid-template-columns: 1fr 0.6fr;
   @media screen and (max-width: 800px){
     grid-template-columns: 1fr;
+    width: 100%;
   }
 
 `;
