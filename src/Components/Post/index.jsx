@@ -1,5 +1,6 @@
 import React from 'react';
 import {Block} from "./style";
+import ReactMarkdown from 'react-markdown'
 
 const Post = ({img, title, desc, time, uniqId}) => {
     const findDate = (dateNum) => {
@@ -49,7 +50,7 @@ const Post = ({img, title, desc, time, uniqId}) => {
                 <h1>{title}</h1>
                 <p>{findDate(time.split('-').join('T').split('T').splice(0,3))}</p>
             </Block.Title>
-            <Block.TextArea>{`${desc}`}</Block.TextArea>
+            <Block.TextArea><ReactMarkdown children={desc} /></Block.TextArea>
         </Block>
     )
 }
