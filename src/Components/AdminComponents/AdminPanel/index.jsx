@@ -62,7 +62,19 @@ const AdminPanel = ({changeAdmin}) => {
                 <h1>Admin Panel</h1>
                 <input type={'file'} name={'img'} placeholder={'Img URL'} onChange={(e)=> handleFileSelect(e)} />
                 <input type={'text'} name={'title'} placeholder={'Post Title'} onChange={(e)=> setTitle(e.target.value)} value={title} />
-                <input type={'text'} name={'desc'} placeholder={'Post Description'} onChange={(e)=> setDesc(e.target.value)} value={desc} />
+                <textarea
+                    autoFocus
+                    type={'text'}
+                    name={'desc'}
+                    placeholder={'Post Description'}
+                    onChange={(e)=> setDesc(e.target.value)}
+                    value={desc}
+                    style={{
+                        width: '100%',
+                        maxWidth: '500px',
+                        minHeight: '200px'
+                    }}
+                />
                 <button onClick={()=> pushPost()} className={'pushButton'}>Push new Property</button>
                 <button onClick={()=> logoutFunc()} className={'logButton'}>Logout</button>
             </Block>
