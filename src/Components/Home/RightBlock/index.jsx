@@ -14,7 +14,7 @@ const RightBlock = () => {
             <Block.Bottom>
                 <h2>MukhammadAli</h2>
                 <h2>Ubaydullayev</h2>
-                <h3>Frontend developer</h3>
+                <h3>Full stack developer</h3>
                 <h4 onClick={()=> navigate('/about')}>About me</h4>
                 <p> Version 0.4</p>
             </Block.Bottom>

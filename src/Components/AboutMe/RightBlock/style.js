@@ -69,5 +69,11 @@ Block.Skilss = styled.div`
   }
 `
 
+Block.Contact = styled.div`
+  font-size: 18px;
+  >p{
+    margin: 10px 0;
+  }
+`
 
 export {Block, Text}

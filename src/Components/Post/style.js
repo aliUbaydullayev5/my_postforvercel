@@ -38,6 +38,7 @@ Block.TextArea = styled.div`
   border-radius: 15px;
   background: var(--backBlock);
   padding: 10px 15px;
+  line-height: 25px;
 
 `;
 
