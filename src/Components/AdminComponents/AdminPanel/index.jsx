@@ -9,35 +9,47 @@ const AdminPanel = ({changeAdmin}) => {
 
     const [title, setTitle] = useState('')
     const [desc, setDesc] = useState('')
-    const [img, setImg] = useState('')
+    const [img, setImg] = useState()
+
     const dispatch = useDispatch()
+
     const pushPost = async () => {
+
         if (title.length && desc.length) {
-            const rawResponse = await fetch('https://preoject2.herokuapp.com/api/addPost', {
-                method: 'POST',
+
+            let formData = new FormData()
+
+            formData.append("img", img)
+            formData.append("title", title)
+            formData.append("desc", desc)
+
+
+
+            await axios({
+                method: "post",
+                url: "https://preoject2.herokuapp.com/api/addPost",
+                data: formData,
                 headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${localStorage.getItem("token")}`
+                    "Content-Type": "multipart/form-data",
+                    "Authorization": `Bearer ${localStorage.getItem("token")}`,
                 },
-                body: JSON.stringify({
-                    img: img,
-                    title: title,
-                    desc: desc
-                })
             })
-            const content = await rawResponse.json();
-            alert(content)
-            setTitle('')
-            setDesc('')
-            setImg('')
+                .then((res)=> {
+                    alert(res.data)
+                    setTitle('')
+                    setDesc('')
+                })
 
         }else{
             alert('do not have Title, Desc')
+
         }
         dispatch(getAllPosts())
     }
 
+    const handleFileSelect = (e) => {
+        setImg(e.target.files[0])
+    }
 
     const logoutFunc = () => {
         localStorage.removeItem("token")
@@ -48,7 +60,7 @@ const AdminPanel = ({changeAdmin}) => {
         <div>
             <Block>
                 <h1>Admin Panel</h1>
-                <input type={'text'} name={'img'} placeholder={'Img URL'} onChange={(e)=> setImg(e.target.value)} value={img} />
+                <input type={'file'} name={'img'} placeholder={'Img URL'} onChange={(e)=> handleFileSelect(e)} />
                 <input type={'text'} name={'title'} placeholder={'Post Title'} onChange={(e)=> setTitle(e.target.value)} value={title} />
                 <input type={'text'} name={'desc'} placeholder={'Post Description'} onChange={(e)=> setDesc(e.target.value)} value={desc} />
                 <button onClick={()=> pushPost()} className={'pushButton'}>Push new Property</button>
