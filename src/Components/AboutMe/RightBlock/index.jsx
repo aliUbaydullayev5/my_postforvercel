@@ -71,7 +71,7 @@ const RightBlock = () => {
                 <p>Email address : <a href="mailto: mukhammadali.ubaydullayev@gmail.com">mukhammadali.ubaydullayev@gmail.com</a></p>
                 <p>Email address : <a href="mailto: mukhammadali.ubaydullayev.05@inbox.ru">mukhammadali.ubaydullayev.05@inbox.ru</a></p>
                 <p>Tel number : <a href="tel:950797740">+998 95 079 77 40</a></p>
-                <p>Tel number : <a href="tel:2407740">+998 33 240 77 40</a></p>
+                <p>Tel number : <a href="tel:332407740">+998 33 240 77 40</a></p>
                 <p>Telegram : <a href="https://t.me/auu05">t.me/auu05</a></p>
                 <p>Telegram : <a href="https://t.me/auu_05">t.me/auu_05</a></p>
             </Block.Contact>
