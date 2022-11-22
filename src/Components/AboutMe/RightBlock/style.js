@@ -61,7 +61,7 @@ Block.Skilss = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding-left: 20px;
-  width: 80%;
+  width: 60%;
   margin: auto;
   ul>li{
     margin: 10px 0; 
